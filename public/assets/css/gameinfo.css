@@ -20,6 +20,7 @@
 
 .menubar a:hover {
   background-color: greenyellow; /* hover color */
+  z-index: 100; /* Avoid overlap on hover */
 }
 
 .active {

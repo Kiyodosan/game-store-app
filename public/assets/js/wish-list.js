@@ -9,6 +9,7 @@ class GalleryItem {
         this.gameID = objectInArray.info.gameID;
         this.thumb = objectInArray.info.thumb;
         this.title = objectInArray.info.title;
+        this.rawgImageUrl = objectInArray.info.rawgImageUrl;
         this.metacriticLink = objectInArray.info.metacriticLink;
         this.metacriticScore = objectInArray.info.metacriticScore;
         this.steamRatingPercent = objectInArray.info.steamRatingPercent;
@@ -23,7 +24,7 @@ class GalleryItem {
         return `
             <div class="gallery-item" data-steamid="${this.steamAppID}" data-gameid="${this.gameID}">
                 <div class="image-container">
-                    <img src="${this.thumb}" alt="${this.title}">
+                    <img src="${this.rawgImageUrl}" alt="${this.title}">
                     <div class="overlay">
                         <div class="overlay-content">
                             <p id="game-name">${this.title}</p>
@@ -166,6 +167,7 @@ fetch("https://www.cheapshark.com/api/1.0/games?ids=" + gameIDs, requestOptions)
                 wishlistGameObj.info.metacriticScore = favorites[favIndex].metacriticScore;
                 wishlistGameObj.info.steamRatingPercent = favorites[favIndex].steamRatingPercent;
                 wishlistGameObj.info.dealRating = favorites[favIndex].dealRating;
+                wishlistGameObj.info.rawgImageUrl = favorites[favIndex].rawgImageUrl;
             }
 
             wishlistGameArr.push(wishlistGameObj);
